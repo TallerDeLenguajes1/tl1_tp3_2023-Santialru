@@ -9,7 +9,7 @@
 int main(){
     srand(time(NULL));
     
-
+    int mayor, bandera =0,bandera2=50000,b,v,h,g;
     int mat[N][M];
         
 
@@ -36,12 +36,28 @@ int main(){
     {
         for (int y = 0; y <M ; y++)
         {
+            if (mat[w][y]>bandera )
+            {
+                bandera=mat[w][y];
+                b = w;
+                v = y;
+            }
+            if (bandera2 > mat[w][y] )
+            {
+                bandera2 = mat[w][y];
+                h = w;
+                g = y;
+            }
+
             suma += mat[w][y];
         }
         prom = suma/M;
         printf("\npromedio del año %d = %ld", w, prom);
         suma=0;
     }
+
+    printf("\nvalor maximo:%d, anio:%d, mes:%d", mat[b][v], b, v);
+    printf("\nvalor minimo:%d, anio:%d, mes:%d", mat[h][g], h, g);
 
     return 0;
 }
